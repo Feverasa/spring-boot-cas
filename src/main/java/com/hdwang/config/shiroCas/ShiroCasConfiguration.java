@@ -39,7 +39,7 @@ public class ShiroCasConfiguration {
     private static final Logger logger = LoggerFactory.getLogger(ShiroCasConfiguration.class);
 
     // cas server地址
-    public static final String casServerUrlPrefix = "https://localhost:8081/cas";
+    public static final String casServerUrlPrefix = "http://localhost:8080/cas";
     // Cas登录页面地址
     public static final String casLoginUrl = casServerUrlPrefix + "/login";
     // Cas登出页面地址
@@ -120,7 +120,7 @@ public class ShiroCasConfiguration {
         FilterRegistrationBean filterRegistration = new FilterRegistrationBean();
         filterRegistration.setFilter(new DelegatingFilterProxy("shiroFilter"));
         //  该值缺省为false,表示生命周期由SpringApplicationContext管理,设置为true则表示由ServletContainer管理
-        filterRegistration.addInitParameter("targetFilterLifecycle", "true");
+//        filterRegistration.addInitParameter("targetFilterLifecycle", "true");
         filterRegistration.setEnabled(true);
         filterRegistration.addUrlPatterns("/*");
         return filterRegistration;
